@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>演算法 Algorithm | CS Notes Hub</title><meta name="description" content="理解時間複雜度、排序與演算法設計的基礎概念。"><link rel="stylesheet" href="../style.css"></head><body><header class="site-header"><nav class="container nav"><a class="logo" href="../index.html">CS <span>Notes</span> Hub</a><a href="../index.html">← 返回首頁</a></nav></header><main class="container article"><a class="back" href="../index.html">← 所有課程</a><h1>演算法 Algorithm</h1><p class="lead">理解時間複雜度、排序與演算法設計的基礎概念。</p><section><h2>重要概念</h2><h3>時間複雜度</h3><p>Big O 描述輸入規模 n 增長時，演算法運算量的漸進上界。常見有 O(1)、O(log n)、O(n)、O(n log n)、O(n²)。</p><h3>二分搜尋</h3><p>在<strong>已排序</strong>的資料中，每次比較中間值，排除約一半搜尋範圍，時間複雜度 O(log n)。</p><h3>合併排序</h3><p>採用分治法，將陣列切成兩半、遞迴排序後合併，時間複雜度 O(n log n)。</p></section><section><h2>程式範例：二分搜尋（JavaScript）</h2><pre><code>function binarySearch(arr, target) {
+  let left = 0, right = arr.length - 1;
+  while (left &lt;= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid] === target) return mid;
+    if (arr[mid] &lt; target) left = mid + 1;
+    else right = mid - 1;
+  }
+  return -1;
+}
+console.log(binarySearch([1, 3, 5, 7], 5)); // 2</code></pre><p>陣列必須先排序；找不到時回傳 -1。</p></section><section><h2>重點整理</h2><ul><li>先確認輸入規模與資料特性。</li><li>二分搜尋要求已排序資料。</li><li>分治法將大問題拆成小問題再組合。</li><li>時間複雜度用於比較演算法成長趨勢。</li></ul></section></main><footer><div class="container">© 2026 CS Notes Hub · 依照 AGENTS.md 規則持續擴充</div></footer></body></html>
